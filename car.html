@@ -1,0 +1,24 @@
+<html>
+    <head>
+        </head>
+        <body>
+            <form>
+                <select onchange="optionChanged()" id="brand">
+                    <option value="Audi">Audi</option>
+                    <option value="BWM">BWM</option>
+                    <option value="Skoda">Skoda</option>
+                    </select>
+                    </form>
+                    <script>
+                    optionChanged();
+                    function optionChanged(){
+                        var brand=document.getElementById("brand").value;
+                        switch(brand){
+                            case"Audi":alert("you have choosen Audi");break;
+                            case"BWM":alert("you have choosen BWM");break;
+                            case"Skoda":alert("you have choose Skoda");break;
+                        }
+                    }
+                    </script>
+                    </body>
+                    </html>
