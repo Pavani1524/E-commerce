@@ -1,0 +1,17 @@
+<html>
+    <head>
+        </head>
+        <body>
+            <form>
+                Enter password:<input type="password" id="password">
+                <button onclick="validatepassword()">Submit</button>
+                </form>
+                <script>
+                    function validatepassword(){
+                        event.preventDefault();
+                        var password=document.getElementById("password").value;
+                        passsword.length>=8 ? alert("password accepted") : alert("password should be alteast 8");
+                    }
+                    </script>
+                    </body>
+                    </html>
