@@ -1,0 +1,101 @@
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <form id="activateForm">
+
+            Enter Account Number:<input type="text" id="accountNo"> <br><br>
+            Enter Name: <input type="text" id="name"><br><br>
+            Enter adhaarCard: <input type="number" id="adhaar"><br><br>
+             <button onclick="activateAccount()">Activate Account</button> 
+             <button onclick="displayAccountDetails()">Show Balance</button> 
+             <button onclick="deposit()">Deposit</button>
+             <button onclick="withdraw()">Withdraw</button>
+
+              <h1 id="account_details"></h1>
+
+               <!--
+
+                  Create another form - deposit form 
+
+                     account Number,
+                     amount
+
+                      Create another form - withdraw form 
+
+                     account Number,
+                     amount
+
+               -->
+
+         </form>
+
+          <script>
+
+
+              var customers=[];
+
+                if(localStorage.getItem("customers") == null) {
+                  console.log("CUSTOMERS ARRAY CREATED");
+              localStorage.setItem('customers',JSON.stringify(customers));
+                }
+               function activateAccount(){
+                   event.preventDefault();
+                     var accountNo=getValueById('accountNo');
+                     var name=getValueById("name");
+                     var adhaar=getValueById("adhaar");
+
+                     var customer={
+                         accountNumber:accountNo,
+                         name:name,
+                         adhaarCardNumber:adhaar,
+                         accountBalance:10000
+                     }
+
+                    var allCustomers=JSON.parse(localStorage.getItem("customers"));
+        
+                        allCustomers.push(customer);
+                           
+                      localStorage.setItem('customers',JSON.stringify(allCustomers));
+                      // document.getElementById('accountNo').value="";
+                      // document.getElementById('name').value="";
+                      // document.getElementById('adhaar').value="";
+                     //console.log(customer);
+
+                     document.getElementById('activateForm').reset();
+               }
+
+               function deposit(){
+
+                 event.preventDefault();
+
+                  location.href="deposit.html";
+                      
+               }
+               function getValueById(id){
+                 return document.getElementById(id).value;
+               }
+
+               function displayAccountDetails(){
+
+                event.preventDefault();
+
+                 var customer=JSON.parse(localStorage.getItem('customers'));
+
+                 document.getElementById("account_details").innerHTML= customer.name + "     "+customer.accountBalance
+               }
+
+               function withdraw(){
+                 event.preventDefault();
+                 location.href="withdraw.html";
+
+               }
+          
+          </script>
+
+     </body>
+</html>
