@@ -1,0 +1,82 @@
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <form>
+
+           Enter name:  <input type="text" id="name"> <br><br>
+           Enter age: <input type="text" id="age"><br><br>
+           Enter address: <input type="text" id="address"><br><br>
+
+           <button onclick="addUser()">Add User</button>
+
+         </form>
+
+          <ul id="usersList">
+
+          </ul>
+
+         <script>
+
+
+ 
+          
+var users=[
+    {
+        name:"ravi",
+        age:21,
+        address: "Hyderabad"
+    },
+    {
+        name:"kiran",
+        age:25,
+         address: "Banglore"
+    },
+    {
+        name:"rajesh",
+        age:27,
+         address: "Secunderabad"
+    }
+]
+
+
+        function addUser(){
+
+            event.preventDefault();
+
+           var name_value= document.getElementById("name").value;
+           var age_value=document.getElementById("age").value;
+           var address_value= document.getElementById("address").value;
+
+             var user= {
+                 name:name_value,
+                 age:age_value,
+                 address:address_value
+             }
+
+             users.push(user);
+
+            var usersList=document.getElementById('usersList');
+
+            usersList.innerHTML="";
+
+            var index=0;
+
+   while(index < users.length){
+
+       usersList.innerHTML= usersList.innerHTML+"<li>" + users[index].name + "&nbsp;" + users[index].age + "&nbsp;" +users[index].address +"</li>";
+       index++;
+
+   }
+        }
+
+ 
+
+
+          </script>
+
+     </body>
+</html>
