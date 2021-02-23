@@ -1,0 +1,58 @@
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         
+          <ul id="usersList">
+
+          </ul>
+
+         <script>
+
+
+ 
+          
+var users=[
+    {
+        name:"ravi",
+        age:21,
+        address: "Hyderabad"
+    },
+    {
+        name:"kiran",
+        age:25,
+         address: "Banglore"
+    },
+    {
+        name:"rajesh",
+        age:27,
+         address: "Secunderabad"
+    }
+]
+
+
+
+            var usersList=document.getElementById('usersList');
+
+            usersList.innerHTML="";
+
+            var index=0;
+
+   while(index < users.length){
+
+       usersList.innerHTML= usersList.innerHTML+"<li>" + users[index].name + "&nbsp;" + users[index].age + "&nbsp;" +users[index].address +"</li>";
+       index++;
+
+   }
+        
+
+ 
+
+
+          </script>
+
+     </body>
+</html>
